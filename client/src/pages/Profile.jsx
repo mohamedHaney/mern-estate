@@ -7,7 +7,6 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "../firebase";
-
 export default function Profile() {
   const [file, setFile] = useState(undefined);
   const fileRef = useRef(null);
