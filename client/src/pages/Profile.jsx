@@ -8,6 +8,9 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import {
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -33,7 +36,6 @@ export default function Profile() {
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, file);
-
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -54,11 +56,27 @@ export default function Profile() {
   const handelChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+  const handleDeleteUser = async()=>{
+    try{
+      dispatch(deleteUserStart())
+      const res = await fetch(`/api/user/delete/${currentUser._id}`,{
+        method:'DELETE'
+      })
+      const data =await res.json()
+      if(data.success === false){
+        dispatch(deleteUserFailure(data.message))
+        return
+      }
+      dispatch(deleteUserSuccess(data))
+    }catch(error){
+      dispatch(deleteUserFailure(error.message))
+    }
+  }
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch(updateUserStart())
-      const res = await fetch(`/api/user/update/${currentUser._id}1`,{
+      const res = await fetch(`/api/user/update/${currentUser._id}`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
@@ -133,7 +151,7 @@ export default function Profile() {
         </button>
       </form>
       <div className="flex justify-between mt-5">
-        <span className="text-red-700 cursor-pointer">Delete Account</span>
+        <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete Account</span>
         {updateSuccess ? <p className="mr-0.5 text-green-700 font-bold text-sm ">User Updated Successfully</p> :<p className="mr-0.5 text-red-700 font-bold text-sm ">{error}</p>}
         <span className="text-red-700 cursor-pointer">Sign Out</span>
       </div>
