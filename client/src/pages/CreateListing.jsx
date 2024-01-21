@@ -262,8 +262,8 @@ export default function CreateListing() {
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
                 id="regularPrice"
-                min={50}
-                max={10000000}
+                min={1}
+                max={100000000}
                 required
                 onChange={handleChange}
                 value={formData.regularPrice}
