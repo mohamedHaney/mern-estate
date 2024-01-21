@@ -237,7 +237,7 @@ export default function CreateListing() {
                 type="number"
                 id="bedrooms"
                 min={1}
-                max={10}
+                max={1000}
                 required
                 onChange={handleChange}
                 value={formData.bedrooms}
@@ -250,7 +250,7 @@ export default function CreateListing() {
                 type="number"
                 id="bathrooms"
                 min={1}
-                max={10}
+                max={1000}
                 required
                 onChange={handleChange}
                 value={formData.bathrooms}
