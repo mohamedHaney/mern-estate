@@ -21,7 +21,7 @@ export default function UpdateListing() {
     type: "rent",
     bedrooms: 1,
     bathrooms: 1,
-    regularPrice: 50,
+    regularPrice: 0,
     discountedPrice: 0,
     offer: false,
     parking: false,
@@ -276,8 +276,6 @@ export default function UpdateListing() {
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
                 id="regularPrice"
-                min={1}
-                max={100000000}
                 required
                 onChange={handleChange}
                 value={formData.regularPrice}

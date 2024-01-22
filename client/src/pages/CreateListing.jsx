@@ -20,7 +20,7 @@ export default function CreateListing() {
     type: "rent",
     bedrooms: 1,
     bathrooms: 1,
-    regularPrice: 50,
+    regularPrice: 0,
     discountedPrice: 0,
     offer: false,
     parking: false,
@@ -118,7 +118,7 @@ export default function CreateListing() {
     e.preventDefault();
     try {
       if(formData.imageUrls.length<1) return setError('You Must Upload At Least One Image');
-      if(+formData.regularPrice < +formData.discountedPrice) return setError('Discounted Price Must Be Lower Than Regular Price ');
+      if(+formData.regularPrice < +formData.discountedPrice) return setError('Discounted Price Must Be Lower Than Regular Price');
       setLoading(true);
       setError(false);
       const res = await fetch("/api/listing/create", {
@@ -262,8 +262,7 @@ export default function CreateListing() {
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
                 id="regularPrice"
-                min={1}
-                max={100000000}
+
                 required
                 onChange={handleChange}
                 value={formData.regularPrice}
