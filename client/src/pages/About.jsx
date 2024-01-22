@@ -22,6 +22,9 @@ export default function About() {
         should be an exciting and rewarding experience, and we are dedicated to
         making that a reality for each and every one of our clients.
       </p>
+        <p className="mb-4 text-slate-700">
+All things offered for sale or rent on this site are not real, but are to test the look of the site only
+      </p>
     </div>
   );
 }
