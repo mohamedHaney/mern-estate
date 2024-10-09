@@ -251,7 +251,7 @@ export default function UpdateListing() {
                 type="number"
                 id="bedrooms"
                 min={1}
-                max={1000}
+                max={100000}
                 required
                 onChange={handleChange}
                 value={formData.bedrooms}
@@ -264,7 +264,7 @@ export default function UpdateListing() {
                 type="number"
                 id="bathrooms"
                 min={1}
-                max={1000}
+                max={100000}
                 required
                 onChange={handleChange}
                 value={formData.bathrooms}
@@ -292,7 +292,7 @@ export default function UpdateListing() {
                 type="number"
                 id="discountedPrice"
                 min={0}
-                max={10000000}
+                max={1000000}
                 required
                 onChange={handleChange}
                 value={formData.discountedPrice}

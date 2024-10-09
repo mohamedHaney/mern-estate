@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?offer=true&limit=8");
+        const res = await fetch("/api/listing/get?offer=true&limit=3");
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -23,7 +23,7 @@ export default function Home() {
     };
     const fetchRentListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?type=rent&limit=8");
+        const res = await fetch("/api/listing/get?type=rent&limit=3");
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();
@@ -33,7 +33,7 @@ export default function Home() {
     };
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?type=sale&limit=8");
+        const res = await fetch("/api/listing/get?type=sale&limit=3");
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
@@ -45,26 +45,28 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-aut">
-        <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
-          find your next <span className="text-slate-500">perfect</span>
+      <div className="flex flex-col gap-6 p-3 px-3 max-w-6xl mx-aut text-center my-4	mx-auto">
+        <h1 className="text-slate-700 font-bold text-sm lg:text-2xl">
+        في عالم الإعلام الرقمي، يمر كل يوم بتطورات جديدة تؤثر على طريقة تقديم الأخبار والمعلومات. مشروعنا يهدف إلى استكشاف هذا التطور من خلال <span className="text-slate-500">رحلة عبر الزمن</span>
           <br />
-          place with ease
+          تتيح لكم معرفة كيف تغيّر الإعلام منذ بداياته حتى اليوم.
         </h1>
         <div className="text-gray-400 text-xl sm:text-sm">
-          Future Home is the best place to find your next perfect place to live.
-          <br />
-          We have a wide range of properties for you to choose from.
+        ماذا نقدم؟
+تاريخ الإعلام: استعرضوا معنا كيف تطور الإعلام عبر السنوات، من الجرائد التقليدية إلى الوسائط الرقمية الحديثة.
+<br/>
+محتوى تفاعلي: اختاروا الفترة الزمنية التي تهمكم واستمتعوا بمشاهدة مقاطع الفيديو والمحتوى الذي يسلط الضوء على التغييرات الرئيسية في تقديم الأخبار.
+<br />
+مقابلات مع خبراء: تعرفوا على تجارب وإلهامات إعلاميين بارزين يشاركوننا رؤاهم حول تطور الإعلام وكيف يؤثر على المجتمع.
         </div>
         <Link
           className="text-xs sm:text-sm text-blue-800 font-bold hover:underline"
           to={"/search"}
         >
-          {" "}
-          Let&apos;s get started...{" "}
+          هيا بنا نبدأ
         </Link>
       </div>
-      {/* swiper */}
+      {/*
       <Swiper navigation>
         {offerListings &&
           offerListings.length > 0 &&
@@ -81,19 +83,20 @@ export default function Home() {
             </SwiperSlide>
           ))}
       </Swiper>
+      */}
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
+      <div className="max-w-6xl mx-auto p-3 flex flex-col gap-3">
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
-                Recent Offers
+                الإذاعة
               </h2>
               <Link
                 className="text-sm text-blue-800 hover:underline"
                 to={"/search?offer=true"}
               >
-                Show more offers
+                إعرض المزيد
               </Link>
             </div>
             <div className="flex flex-wrap gap-4 ">
@@ -107,7 +110,7 @@ export default function Home() {
           <div className="">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
-                Recent Places For Rent
+                التليفزيون
               </h2>
               <Link
                 className="text-sm text-blue-800 hover:underline"
@@ -127,7 +130,7 @@ export default function Home() {
           <div className="">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
-                Recent Places For Sale
+                الصحافة
               </h2>
               <Link
                 className="text-sm text-blue-800 hover:underline"

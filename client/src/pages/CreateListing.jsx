@@ -20,7 +20,7 @@ export default function CreateListing() {
     type: "rent",
     bedrooms: 1,
     bathrooms: 1,
-    regularPrice: 0,
+    regularPrice: "",
     discountedPrice: 0,
     offer: false,
     parking: false,
@@ -179,7 +179,7 @@ export default function CreateListing() {
             value={formData.address}
           />
           <div className="flex gap-6 flex-wrap">
-            <div className="flex gap-2">
+            {/* <div className="flex gap-2">
               <input
                 type="checkbox"
                 id="sale"
@@ -187,9 +187,9 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "sale"}
               />
-              <span>Sell</span>
-            </div>
-            <div className="flex gap-2">
+              <span>الإذاعة</span>
+            </div> */}
+            {/* <div className="flex gap-2">
               <input
                 type="checkbox"
                 id="rent"
@@ -197,8 +197,8 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "rent"}
               />
-              <span>Rent</span>
-            </div>
+              <span>الصحافة</span>
+            </div> */}
             <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -207,7 +207,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.parking}
               />
-              <span>Parking Spot</span>
+              <span>التليفزيون</span>
             </div>
             <div className="flex gap-2">
               <input
@@ -217,7 +217,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.furnished}
               />
-              <span>Furnished</span>
+              <span>الصحافة</span>
             </div>
             <div className="flex gap-2">
               <input
@@ -227,24 +227,25 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.offer}
               />
-              <span>Offer</span>
+              <span>الإذاعة</span>
             </div>
           </div>
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2">
+              <p>منذ</p>
               <input
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
                 id="bedrooms"
                 min={1}
-                max={1000}
+                max={500000}
                 required
                 onChange={handleChange}
                 value={formData.bedrooms}
               />
-              <p>Beds</p>
+              <p>سنة</p>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <input
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
@@ -256,20 +257,18 @@ export default function CreateListing() {
                 value={formData.bathrooms}
               />
               <p>Baths</p>
-            </div>
+            </div> */}
             <div className="flex items-center gap-2">
+            <span className="text-sm">بدايه النضة الاعلامية بها منذ</span>
               <input
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
                 id="regularPrice"
-
-                required
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
               <div className="flex flex-col items-center">
-                <p>Regular Price</p>
-                <span className="text-sm">($ / month)</span>
+                <p>سنة</p>
               </div>
             </div>
             {formData.offer && (
@@ -279,7 +278,7 @@ export default function CreateListing() {
                 type="number"
                 id="discountedPrice"
                 min={0}
-                max={10000000}
+                max={100000}
                 required
                 onChange={handleChange}
                 value={formData.discountedPrice}
