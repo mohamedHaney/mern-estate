@@ -110,7 +110,7 @@ export default function Home() {
         {rentListings && rentListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-sky-600">
               الإذاعة و التليفزيون
               </h2>
               <Link
@@ -130,7 +130,7 @@ export default function Home() {
         {saleListings && saleListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-sky-600">
                 الصحافة
               </h2>
               <Link
