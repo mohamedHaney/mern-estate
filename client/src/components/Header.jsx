@@ -26,8 +26,8 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to={"/"}>
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">Future</span>
-            <span className="text-slate-700">Home</span>
+             <span className="text-sky-600 px-1">{" رحلة الأعلام"}</span>
+            <span className="text-slate-700 ">{" عبر الزمان  "}</span>
           </h1>
         </Link>
         <form onSubmit={handleSubmit} className="bg-slate-100 p-3 rounded-lg flex items-center">

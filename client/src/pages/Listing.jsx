@@ -6,13 +6,16 @@ import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 import {
-  FaBath,
-  FaBed,
-  FaChair,
+  FaMicrophone ,
   FaMapMarkerAlt,
-  FaParking,
   FaShare,
 } from 'react-icons/fa';
+import { IoColorPalette } from "react-icons/io5";
+
+import { MdOutlinePhotoCamera } from "react-icons/md";
+
+import { TfiWrite } from "react-icons/tfi";
+
 import Contact from '../components/Contact';
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
@@ -89,11 +92,10 @@ export default function Listing() {
           )}
           <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
             <p className='text-2xl font-semibold'>
-              {listing.name} - ${' '}
-              {listing.offer
-                ? listing.discountedPrice
-                : listing.regularPrice}
-              {listing.type === 'rent' && ' / month'}
+            
+              {listing.name} {' منذ '}
+              {listing.bedrooms}
+                 {" سنة "}
             </p>
             <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
               <FaMapMarkerAlt className='text-green-700' />
@@ -115,24 +117,24 @@ export default function Listing() {
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaBed className='text-lg' />
+                <IoColorPalette className='text-lg' />
                 {listing.bedrooms > 1
-                  ? `${listing.bedrooms} beds `
-                  : `${listing.bedrooms} bed `}
+                  ? `${listing.bedrooms} عبدالله السيد `
+                  : `${listing.bedrooms} عبدالله السيد  `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaBath className='text-lg' />
+                <MdOutlinePhotoCamera className='text-lg' />
                 {listing.bathrooms > 1
-                  ? `${listing.bathrooms} baths `
-                  : `${listing.bathrooms} bath `}
+                  ? `${listing.bathrooms} محمد احمد `
+                  : `${listing.bathrooms} محمد احمد `}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaParking className='text-lg' />
-                {listing.parking ? 'Parking spot' : 'No Parking'}
+                <FaMicrophone  className='text-lg' />
+                {listing.parking ? 'اسلام خالد' : 'اسلام خالد'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaChair className='text-lg' />
-                {listing.furnished ? 'Furnished' : 'Unfurnished'}
+                <TfiWrite      className='text-lg' />
+                {listing.furnished ? 'محمد هاني ': 'محمد هاني'}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (

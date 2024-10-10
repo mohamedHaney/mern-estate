@@ -27,18 +27,16 @@ export default function ListingItem({ listing }) {
             {listing.description}
           </p>
           <p className='text-slate-500 mt-2 font-semibold '>
-            $
-            {listing.offer
-              ? listing.discountedPrice
-              : listing.regularPrice}
-            {listing.type === 'rent' && ' / month'}
+            {"بدأت عام  "}
+            {listing.regularPrice}
+            {/* {listing.type === 'rent' && ' / month'} */}
           </p>
           <div className='text-slate-700 flex gap-4'>
-            <div className='font-bold text-xs'>
+            {/* <div className='font-bold text-xs'>
               {listing.bedrooms > 1
                 ? `منذ سنة واحدة`
                 : `منذ ${listing.bedrooms} سنة `}
-            </div>
+            </div> */}
           </div>
         </div>
       </Link>

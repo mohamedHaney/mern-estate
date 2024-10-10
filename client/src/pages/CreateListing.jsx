@@ -18,8 +18,8 @@ export default function CreateListing() {
     description: "",
     address: "",
     type: "rent",
-    bedrooms: 1,
-    bathrooms: 1,
+    bedrooms: "",
+    bathrooms: "",
     regularPrice: "",
     discountedPrice: 0,
     offer: false,
@@ -179,7 +179,7 @@ export default function CreateListing() {
             value={formData.address}
           />
           <div className="flex gap-6 flex-wrap">
-            {/* <div className="flex gap-2">
+            <div className="flex gap-2">
               <input
                 type="checkbox"
                 id="sale"
@@ -187,8 +187,8 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "sale"}
               />
-              <span>الإذاعة</span>
-            </div> */}
+              <span>التليفزيون</span>
+            </div>
             {/* <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -197,9 +197,9 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "rent"}
               />
-              <span>الصحافة</span>
+              <span>التليفزيون</span>
             </div> */}
-            <div className="flex gap-2">
+            {/* <div className="flex gap-2">
               <input
                 type="checkbox"
                 id="parking"
@@ -208,7 +208,7 @@ export default function CreateListing() {
                 checked={formData.parking}
               />
               <span>التليفزيون</span>
-            </div>
+            </div> */}
             <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -243,7 +243,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.bedrooms}
               />
-              <p>سنة</p>
+              سنة
             </div>
             {/* <div className="flex items-center gap-2">
               <input
@@ -259,7 +259,7 @@ export default function CreateListing() {
               <p>Baths</p>
             </div> */}
             <div className="flex items-center gap-2">
-            <span className="text-sm">بدايه النضة الاعلامية بها منذ</span>
+            <span className="text-sm"> بدايه النضة الاعلامية بها كانت عام</span>
               <input
                 className="p-3 border border-gray-300 rounded-lg"
                 type="number"
@@ -268,7 +268,7 @@ export default function CreateListing() {
                 value={formData.regularPrice}
               />
               <div className="flex flex-col items-center">
-                <p>سنة</p>
+                
               </div>
             </div>
             {formData.offer && (
@@ -285,7 +285,7 @@ export default function CreateListing() {
               />
               <div className="flex flex-col items-center">
                 <p>Discounted Price</p>
-                <span className="text-sm">($ / month)</span>
+                {/* <span className="text-sm">($ / month)</span> */}
               </div>
             </div>
             ) }
