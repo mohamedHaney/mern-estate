@@ -155,7 +155,7 @@ export default function CreateListing() {
             className="border p-3 rounded-lg"
             id="name"
             maxLength={62}
-            minLength={10}
+            minLength={2}
             required
             onChange={handleChange}
             value={formData.name}
@@ -179,6 +179,8 @@ export default function CreateListing() {
             value={formData.address}
           />
           <div className="flex gap-6 flex-wrap">
+
+
             <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -187,8 +189,10 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "sale"}
               />
-              <span>التليفزيون</span>
+              <span>الصحافة</span>
             </div>
+
+
             {/* <div className="flex gap-2">
               <input
                 type="checkbox"
@@ -207,28 +211,34 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.parking}
               />
-              <span>التليفزيون</span>
+              <span>الإذاعة</span>
             </div> */}
+
+
             <div className="flex gap-2">
               <input
                 type="checkbox"
-                id="furnished"
+                id="rent"
                 className="w-5"
                 onChange={handleChange}
-                checked={formData.furnished}
+                checked={formData.type === "rent"}
               />
-              <span>الصحافة</span>
+              <span>الإذاعة و التليفزيون</span>
             </div>
-            <div className="flex gap-2">
+
+
+            {/* <div className="flex gap-2">
               <input
                 type="checkbox"
                 id="offer"
                 className="w-5"
                 onChange={handleChange}
-                checked={formData.offer}
+                checked={formData.type === "offer"}
               />
               <span>الإذاعة</span>
-            </div>
+            </div> */}
+
+
           </div>
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2">
@@ -299,14 +309,15 @@ export default function CreateListing() {
             </span>
           </p>
           <div className="flex gap-4">
-            <input
-              onChange={(e) => setFiles(e.target.files)}
-              className="p-3 border border-gray-300 rounded w-full"
-              type="file"
-              id="images"
-              accept="image/*"
-              multiple
-            />
+          <input
+  onChange={(e) => setFiles(e.target.files)}
+  className='p-3 border border-gray-300 rounded w-full'
+  type='file'
+  id='media'
+  accept='image/*,video/*'
+  multiple
+/>
+
             <button
               type="button"
               disabled={uploading}

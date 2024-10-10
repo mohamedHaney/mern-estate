@@ -94,6 +94,7 @@ export default function UpdateListing() {
       );
     });
   };
+  
   const handleRomveImage = (index) => {
     setFormData({
       ...formData,
@@ -221,7 +222,7 @@ export default function UpdateListing() {
                 onChange={handleChange}
                 checked={formData.parking}
               />
-              <span>التليفزيون</span>
+              <span>الإذاعة و التليفزيون</span>
             </div>
             <div className="flex gap-2">
               <input
